@@ -1,0 +1,23 @@
+{
+    "name": "Rounded-Corners",
+    "version": "1.0.0",
+    "title": "Highcharts Individual Rounded Corners",
+    "jsfiddle": "http://jsfiddle.net/highcharts/2TuCW/",
+    "author": {
+        "name": "Torstein Hønsi",
+        "url": "https://github.com/highslide-software"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/highslide-software/rounded-corners/blob/master/LICENSE"
+        }
+    ],
+    "description": "This plugin adds the feature of rounded corners.",
+    "keywords": [
+     "corners"
+    ],
+    "dependencies": {
+        "Highcharts": ">=3.0.0"
+    }
+}
