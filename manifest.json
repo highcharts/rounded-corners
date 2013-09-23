@@ -1,8 +1,10 @@
 {
     "name": "Rounded-Corners",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "title": "Highcharts Individual Rounded Corners",
-    "jsfiddle": "http://jsfiddle.net/highcharts/2TuCW/",
+    "demo": [
+        "http://jsfiddle.net/highcharts/2TuCW/"
+    ],
     "author": {
         "name": "Torstein Hønsi",
         "url": "https://github.com/highslide-software"
