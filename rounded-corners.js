@@ -1,8 +1,8 @@
 /**
  * Highcharts plugin for creating individual rounded corners.
  * 
- * Author: Torstein Hønsi
- * Last revision: 2013-05-06
+ * Author: Torstein Honsi
+ * Last revision: 2014-09-19
  * License: MIT License
  *
  * Known issues:
@@ -27,6 +27,10 @@
                     h = shapeArgs.height,
                     x = shapeArgs.x,
                     y = shapeArgs.y;
+
+                // Preserve the box for data labels
+                point.dlBox = point.shapeArgs;
+
                 point.shapeType = 'path';
                 point.shapeArgs = {
                     d: [
