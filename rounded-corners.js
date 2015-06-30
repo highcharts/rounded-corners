@@ -16,7 +16,9 @@
             rTopLeft = options.borderRadiusTopLeft || 0,
             rTopRight = options.borderRadiusTopRight || 0,
             rBottomRight = options.borderRadiusBottomRight || 0,
-            rBottomLeft = options.borderRadiusBottomLeft || 0;
+            rBottomLeft = options.borderRadiusBottomLeft || 0,
+            topMargin = options.topMargin || 0,
+            bottomMargin = options.bottomMargin || 0;
 
         proceed.call(this);
 
@@ -34,17 +36,17 @@
                 point.shapeType = 'path';
                 point.shapeArgs = {
                     d: [
-                        'M', x + rTopLeft, y,
+                        'M', x + rTopLeft, y + topMargin,
                         // top side
-                        'L', x + w - rTopRight, y,
+                        'L', x + w - rTopRight, y + topMargin,
                         // top right corner
                         'C', x + w - rTopRight / 2, y, x + w, y + rTopRight / 2, x + w, y + rTopRight,
                         // right side
                         'L', x + w, y + h - rBottomRight,
                         // bottom right corner
-                        'C', x + w, y + h - rBottomRight / 2, x + w - rBottomRight / 2, y + h, x + w - rBottomRight, y + h,
+                        'C', x + w, y + h - rBottomRight / 2, x + w - rBottomRight / 2, y + h, x + w - rBottomRight, y + h + bottomMargin,
                         // bottom side
-                        'L', x + rBottomLeft, y + h,
+                        'L', x + rBottomLeft, y + h + bottomMargin,
                         // bottom left corner
                         'C', x + rBottomLeft / 2, y + h, x, y + h - rBottomLeft / 2, x, y + h - rBottomLeft,
                         // left side
@@ -59,3 +61,4 @@
         }
     });
 }(Highcharts));
+
