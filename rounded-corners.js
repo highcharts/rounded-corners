@@ -1,8 +1,8 @@
 /**
  * Highcharts plugin for creating individual rounded corners.
- * 
+ *
  * Author: Torstein Honsi
- * Last revision: 2014-09-19
+ * Last revision: 2016-10-19
  * License: MIT License
  *
  * Known issues:
@@ -18,17 +18,27 @@
             rBottomRight = options.borderRadiusBottomRight || 0,
             rBottomLeft = options.borderRadiusBottomLeft || 0,
             topMargin = options.topMargin || 0,
-            bottomMargin = options.bottomMargin || 0;
+            bottomMargin = options.bottomMargin || 0,
+            rTopLeftFraction = options.borderRadiusTopLeftFraction || 0,
+            rTopRightFraction = options.borderRadiusTopRightFraction || 0,
+            rBottomRightFraction = options.borderRadiusBottomRightFraction || 0,
+            rBottomLeftFraction = options.borderRadiusBottomLeftFraction || 0;
 
         proceed.call(this);
 
-        if (rTopLeft || rTopRight || rBottomRight || rBottomLeft) {
-            H.each(this.points, function (point) {
+        if (rTopLeft || rTopRight || rBottomRight || rBottomLeft ||
+            rTopLeftFraction || rTopRightFraction || rBottomRightFraction || rBottomRightFraction) {
+            H.each(this.points, function(point) {
                 var shapeArgs = point.shapeArgs,
                     w = shapeArgs.width,
                     h = shapeArgs.height,
                     x = shapeArgs.x,
                     y = shapeArgs.y;
+
+                rTopLeft = rTopLeft || rTopLeftFraction * w;
+                rTopRight = rTopRight || rTopRightFraction * w;
+                rBottomRight = rBottomRight || rBottomRightFraction * w;
+                rBottomLeft = rBottomLeft || rBottomLeftFraction * w;
 
                 // Preserve the box for data labels
                 point.dlBox = point.shapeArgs;
@@ -56,9 +66,8 @@
                         'Z'
                     ]
                 };
-                    
+
             });
         }
     });
 }(Highcharts));
-
