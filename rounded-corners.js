@@ -29,6 +29,15 @@
                     h = shapeArgs.height,
                     x = shapeArgs.x,
                     y = shapeArgs.y;
+                
+                // Correct for small columns (#7)
+                if (rTopLeft > (w / 2)) {
+                    rTopLeft = w / 2;
+                }
+
+                if (rTopRight > (w / 2)) {
+                    rTopRight = w / 2;
+                }
 
                 // Preserve the box for data labels
                 point.dlBox = point.shapeArgs;
