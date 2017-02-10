@@ -2,34 +2,34 @@
  * Highcharts plugin for creating individual rounded corners.
  * 
  * Author: Torstein Honsi
- * Last revision: 2014-09-19
+ * Version: 1.0.4
  * License: MIT License
- *
- * Known issues:
- * - Animation isn't working. To overcome that, create a method on the Renderer which points
- *   to a symbol definition, like it is currently done with "arc" in PieSeries.
- * - Dom exception on showing/hiding the series
  */
 (function (H) {
+    var rel = H.relativeLength;
+
     H.wrap(H.seriesTypes.column.prototype, 'translate', function (proceed) {
         var options = this.options,
-            rTopLeft = options.borderRadiusTopLeft || 0,
-            rTopRight = options.borderRadiusTopRight || 0,
-            rBottomRight = options.borderRadiusBottomRight || 0,
-            rBottomLeft = options.borderRadiusBottomLeft || 0,
             topMargin = options.topMargin || 0,
             bottomMargin = options.bottomMargin || 0;
 
         proceed.call(this);
 
-        if (rTopLeft || rTopRight || rBottomRight || rBottomLeft) {
-            H.each(this.points, function (point) {
-                var shapeArgs = point.shapeArgs,
-                    w = shapeArgs.width,
-                    h = shapeArgs.height,
-                    x = shapeArgs.x,
-                    y = shapeArgs.y;
-                
+        H.each(this.points, function (point) {
+            var shapeArgs = point.shapeArgs,
+                w = shapeArgs.width,
+                h = shapeArgs.height,
+                x = shapeArgs.x,
+                y = shapeArgs.y;
+
+            // Get the radius
+            var rTopLeft = rel(options.borderRadiusTopLeft || 0, w),
+                rTopRight = rel(options.borderRadiusTopRight || 0, w),
+                rBottomRight = rel(options.borderRadiusBottomRight || 0, w),
+                rBottomLeft = rel(options.borderRadiusBottomLeft || 0, w);
+        
+            if (rTopLeft || rTopRight || rBottomRight || rBottomLeft) {
+            
                 // Correct for small columns (#7)
                 if (rTopLeft > (w / 2)) {
                     rTopLeft = w / 2;
@@ -65,9 +65,9 @@
                         'Z'
                     ]
                 };
-                    
-            });
-        }
+            }
+                
+        });
     });
 }(Highcharts));
 
