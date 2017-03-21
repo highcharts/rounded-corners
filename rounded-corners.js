@@ -29,14 +29,22 @@
                 rBottomLeft = rel(options.borderRadiusBottomLeft || 0, w);
         
             if (rTopLeft || rTopRight || rBottomRight || rBottomLeft) {
-            
-                // Correct for small columns (#7)
-                if (rTopLeft > (w / 2)) {
-                    rTopLeft = w / 2;
+                var maxR = Math.min(w, h) / 2
+                    
+                if (rTopLeft > maxR) {
+                    rTopLeft = maxR;
                 }
 
-                if (rTopRight > (w / 2)) {
-                    rTopRight = w / 2;
+                if (rTopRight > maxR) {
+                    rTopRight = maxR;
+                }
+
+                if (rBottomRight > maxR) {
+                    rBottomRight = maxR;
+                }
+
+                if (rBottomLeft > maxR) {
+                    rBottomLeft = maxR;
                 }
 
                 // Preserve the box for data labels
