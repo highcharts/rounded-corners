@@ -1,7 +1,9 @@
 /**
  * Highcharts plugin for creating individual rounded corners.
- * Author: Torstein Honsi
- * Version: 1.0.4
+ * 
+ * Authors: Torstein Honsi 
+ * Samuel J Mathew - Added support for  series with negative values.
+ * Version: 1.0.5
  * License: MIT License
  */
 (function (H) {
@@ -10,13 +12,7 @@
     H.wrap(H.seriesTypes.column.prototype, 'translate', function (proceed) {
         var options = this.options,
             topMargin = options.topMargin || 0,
-            bottomMargin = options.bottomMargin || 0,
-            seriesLen = series.length - 1,
-            dataPoint,
-            seriesRoundedIndex,
-            currentSerie,
-            currentSerieOptions,
-            i, j;
+            bottomMargin = options.bottomMargin || 0;
 
         proceed.call(this);
 
@@ -26,16 +22,29 @@
                 h = shapeArgs.height,
                 x = shapeArgs.x,
                 y = shapeArgs.y;
+            var borderRadiusTopLeft = options.borderRadiusTopLeft;
+            var borderRadiusTopRight = options.borderRadiusTopRight;
+            var borderRadiusBottomRight = options.borderRadiusBottomRight;
+            var borderRadiusBottomLeft = options.borderRadiusBottomLeft;
+
+            if (point.y < 0) {
+                var tempTopLeft = borderRadiusTopLeft;
+                var tempTopRight = borderRadiusTopRight;
+                borderRadiusTopLeft = borderRadiusBottomLeft;
+                borderRadiusTopRight = borderRadiusBottomRight;
+                borderRadiusBottomLeft = tempTopLeft;
+                borderRadiusBottomRight = tempTopRight;
+            }
 
             // Get the radius
-            var rTopLeft = rel(options.borderRadiusTopLeft || 0, w),
-                rTopRight = rel(options.borderRadiusTopRight || 0, w),
-                rBottomRight = rel(options.borderRadiusBottomRight || 0, w),
-                rBottomLeft = rel(options.borderRadiusBottomLeft || 0, w);
-        
+            var rTopLeft = rel(borderRadiusTopLeft || 0, w),
+                rTopRight = rel(borderRadiusTopRight || 0, w),
+                rBottomRight = rel(borderRadiusBottomRight || 0, w),
+                rBottomLeft = rel(borderRadiusBottomLeft || 0, w);
+
             if (rTopLeft || rTopRight || rBottomRight || rBottomLeft) {
                 var maxR = Math.min(w, h) / 2
-                    
+
                 if (rTopLeft > maxR) {
                     rTopLeft = maxR;
                 }
@@ -51,7 +60,6 @@
                 if (rBottomLeft > maxR) {
                     rBottomLeft = maxR;
                 }
-            }
 
                 // Preserve the box for data labels
                 point.dlBox = point.shapeArgs;
@@ -80,7 +88,7 @@
                     ]
                 };
             }
-                
+
         });
     });
 }(Highcharts));
