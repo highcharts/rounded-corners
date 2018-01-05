@@ -5,6 +5,7 @@
  * Samuel J Mathew - Added support for  series with negative values.
  * Version: 1.0.5
  * License: MIT License
+ * URL : https://github.com/samuelj90/rounded-corners
  */
 (function (H) {
     var rel = H.relativeLength;
