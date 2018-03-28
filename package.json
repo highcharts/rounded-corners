@@ -20,12 +20,7 @@
     "demo": [
         "http://jsfiddle.net/highcharts/2TuCW/"
     ],
-    "licenses": [
-        {
-            "type": "MIT",
-            "url": "https://github.com/highslide-software/rounded-corners/blob/master/LICENSE"
-        }
-    ],
+    "license" : "MIT",
     "bugs": {
         "url": "https://github.com/highcharts/rounded-corners/issues"
     },
