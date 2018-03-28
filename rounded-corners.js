@@ -2,7 +2,7 @@
  * Highcharts plugin for creating individual rounded corners.
  * 
  * Author: Torstein Honsi
- * Version: 1.0.4
+ * Version: 1.0.5
  * License: MIT License
  */
 (function (H) {
