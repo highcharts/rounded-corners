@@ -3,7 +3,7 @@
         "rounded-corners.js",
         "LICENSE"
     ],
-    "name": "Rounded-Corners",
+    "name": "highcharts-rounded-corners",
     "version": "1.0.5",
     "description": "This plugin allows individually rounded corners in columns and bars. Improves the looks on stacked charts and allows better alignment to the threshold line.",
     "main": "rounded-corners.js",
