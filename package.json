@@ -30,6 +30,6 @@
     },
     "homepage": "https://github.com/highcharts/rounded-corners#readme",
     "dependencies": {
-        "Highcharts": ">=3.0.0"
+        "highcharts": ">=3.0.0"
     }
 }
