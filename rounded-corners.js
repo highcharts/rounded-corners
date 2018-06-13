@@ -5,7 +5,15 @@
  * Version: 1.0.5
  * License: MIT License
  */
-(function (H) {
+(function (factory) {
+    "use strict";
+
+    if (typeof module === "object" && module.exports) {
+        module.exports = factory;
+    } else {
+        factory(Highcharts);
+    }
+}(function (H) {
     var rel = H.relativeLength;
 
     H.wrap(H.seriesTypes.column.prototype, 'translate', function (proceed) {
@@ -77,5 +85,4 @@
                 
         });
     });
-}(Highcharts));
-
+}));
