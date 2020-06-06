@@ -100,5 +100,6 @@
 
         });
     });
-}(Highcharts));
-}));
+}(Highcharts))
+);
+
