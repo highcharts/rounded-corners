@@ -1,13 +1,21 @@
 /**
  * Highcharts plugin for creating individual rounded corners.
  * 
- * Authors: Torstein Honsi 
+ * Author: Torstein Honsi
  * Samuel J Mathew - Added support for  series with negative values.
  * Version: 1.0.5
  * License: MIT License
  * URL : https://github.com/samuelj90/rounded-corners
  */
-(function (H) {
+(function (factory) {
+    "use strict";
+
+    if (typeof module === "object" && module.exports) {
+        module.exports = factory;
+    } else {
+        factory(Highcharts);
+    }
+}(function (H) {
     var rel = H.relativeLength;
 
     H.wrap(H.seriesTypes.column.prototype, 'translate', function (proceed) {
@@ -93,3 +101,4 @@
         });
     });
 }(Highcharts));
+}));
