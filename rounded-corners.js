@@ -23,7 +23,7 @@
 
         proceed.call(this);
 
-        H.each(this.points, function (point) {
+        this.points.forEach(function (point) {
             var shapeArgs = point.shapeArgs,
                 w = shapeArgs.width,
                 h = shapeArgs.height,
