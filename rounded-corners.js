@@ -61,24 +61,24 @@
                 point.shapeType = 'path';
                 point.shapeArgs = {
                     d: [
-                        'M', x + rTopLeft, y + topMargin,
+                        ['M', x + rTopLeft, y + topMargin],
                         // top side
-                        'L', x + w - rTopRight, y + topMargin,
+                        ['L', x + w - rTopRight, y + topMargin],
                         // top right corner
-                        'C', x + w - rTopRight / 2, y, x + w, y + rTopRight / 2, x + w, y + rTopRight,
+                        ['C', x + w - rTopRight / 2, y, x + w, y + rTopRight / 2, x + w, y + rTopRight],
                         // right side
-                        'L', x + w, y + h - rBottomRight,
+                        ['L', x + w, y + h - rBottomRight],
                         // bottom right corner
-                        'C', x + w, y + h - rBottomRight / 2, x + w - rBottomRight / 2, y + h, x + w - rBottomRight, y + h + bottomMargin,
+                        ['C', x + w, y + h - rBottomRight / 2, x + w - rBottomRight / 2, y + h, x + w - rBottomRight, y + h + bottomMargin],
                         // bottom side
-                        'L', x + rBottomLeft, y + h + bottomMargin,
+                        ['L', x + rBottomLeft, y + h + bottomMargin],
                         // bottom left corner
-                        'C', x + rBottomLeft / 2, y + h, x, y + h - rBottomLeft / 2, x, y + h - rBottomLeft,
+                        ['C', x + rBottomLeft / 2, y + h, x, y + h - rBottomLeft / 2, x, y + h - rBottomLeft],
                         // left side
-                        'L', x, y + rTopLeft,
+                        ['L', x, y + rTopLeft],
                         // top left corner
-                        'C', x, y + rTopLeft / 2, x + rTopLeft / 2, y, x + rTopLeft, y,
-                        'Z'
+                        ['C', x, y + rTopLeft / 2, x + rTopLeft / 2, y, x + rTopLeft, y],
+                        ['Z']
                     ]
                 };
             }
