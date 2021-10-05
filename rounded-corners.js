@@ -24,7 +24,8 @@
         proceed.call(this);
 
         this.points.forEach(function (point) {
-            var shapeArgs = point.shapeArgs,
+            var isNegative  = point.negative || false,
+                shapeArgs = point.shapeArgs,
                 w = shapeArgs.width,
                 h = shapeArgs.height,
                 x = shapeArgs.x,
@@ -38,6 +39,10 @@
         
             if (rTopLeft || rTopRight || rBottomRight || rBottomLeft) {
                 var maxR = Math.min(w, h) / 2
+                
+                if (isNegative) {
+                    [rTopLeft, rTopRight, rBottomLeft, rBottomRight] = [rBottomLeft, rBottomRight, rTopLeft, rTopRight]
+                }
                     
                 if (rTopLeft > maxR) {
                     rTopLeft = maxR;
