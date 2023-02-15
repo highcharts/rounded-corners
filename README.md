@@ -14,6 +14,7 @@ The plugin adds four options to the column series object; `borderRadiusTopLeft`,
 If the options are given as numbers, they are interpreted as pixels. If given
 as percentage strings, they are percentages of the column width.
 
+See [the docs](https://github.com/highcharts/highcharts-react#how-to-add-a-module) on how to use plugins with Highcharts.
 
 ### Demo
 * [Rounded corners](http://jsfiddle.net/highcharts/b288zrch/)
