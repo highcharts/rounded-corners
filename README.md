@@ -1,9 +1,16 @@
 Rounded corners
 ===============
+
+### Deprecated
+This plugin has been deprecated. Since Highcharts v11, rounded corners are built
+into the library natively, and with better handling of chart direction, stacking
+and more. See [column.borderRadius](https://api.highcharts.com/highcharts/series.column.borderRadius).
+
+### Description
 This plugin adds options for setting rounded corners on bar and column charts.
 
 The contents of the plugin is located in the javascript file
-`rounded-corners.js`. 
+`rounded-corners.js`.
 
 This plugin is published under the MIT license, and the license document is
 included in the repository.
